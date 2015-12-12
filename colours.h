@@ -8,7 +8,8 @@
 #define GREEN	5	//  0 255   0
 #define BLUE	6	//  0   0 255
 #define INDIGO	7	//255   0  80
-#define NUM_COLOURS 8
+#define CYAN	8	//  0 255 255
+#define NUM_COLOURS 9
 
 /* These colours need 4 sub-pixel tables.
  I fancy 100 vlaue per table */
@@ -62,6 +63,8 @@ unsigned long colour(unsigned char colour, unsigned char brightness) {
       return value << 8;
     case BLUE:
       return value;
+    case CYAN:
+      return (value << 8) | value;
     default:
       return (value << 16) | SUBP_80[brightness];
   }
